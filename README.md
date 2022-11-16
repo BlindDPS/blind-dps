@@ -30,10 +30,12 @@ cd blind-dps
 
 
 ### 2) Download pretrained checkpoint
-From the [link](https://drive.google.com/drive/folders/1K_CG24xePSGeSdTGmcPfOAliHdY-nUsC?usp=sharing), download the checkpoint "ffhq_10m.pt" and paste it to ./models/
+From the [link](https://drive.google.com/drive/folders/1K_CG24xePSGeSdTGmcPfOAliHdY-nUsC?usp=sharing), download all checkpoints and paste it to ./models/
 ```
 mkdir models
 mv {DOWNLOAD_DIR}/ffqh_10m.pt ./models/
+mv {DOWNLOAD_DIR}/kernel_new_3m.pt ./models/
+mv {DOWNLOAD_DIR}/tilt256x256_1.4m.pt ./models/
 ```
 
 
