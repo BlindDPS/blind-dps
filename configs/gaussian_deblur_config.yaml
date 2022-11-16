@@ -1,0 +1,20 @@
+kernel: gaussian
+kernel_size: 64
+intensity: 3.0
+
+conditioning:
+  method: ps
+  params:
+    scale: 0.3
+
+data:
+  name: ffhq
+  root: ./data/samples
+
+measurement:
+  operator:
+    name: blind_blur
+  
+  noise: 
+    name: gaussian
+    sigma: 0.02
