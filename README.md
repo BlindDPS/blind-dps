@@ -8,6 +8,11 @@ Diffusion model-based inverse problem solvers have demonstrated state-of-the-art
 In this work, we show that we can indeed solve a family of blind inverse problems by constructing another diffusion prior for the forward operator. Specifically, parallel reverse diffusion guided by gradients from the intermediate stages enables joint optimization of both the forward operator parameters as well as the image, such that both are jointly estimated at the end of the parallel reverse diffusion procedure. We show the efficacy of our method on two representative tasks --- blind deblurring, and imaging through turbulence --- and show that our method yields state-of-the-art performance, while also being flexible to be applicable to general blind inverse problems when we know the functional forms.
 
 
+<br />
+
+:bulb: This repository is implemented on official repository of [DPS (diffusion-posterior-sampling)](https://github.com/DPS2022/diffusion-posterior-sampling).
+
+<br />
 
 ## Prerequisites
 - python 3.8
@@ -17,6 +22,8 @@ In this work, we show that we can indeed solve a family of blind inverse problem
 - CUDA 11.3.1
 
 - nvidia-docker (if you use GPU in docker container)
+
+<br />
 
 ## Getting started 
 
