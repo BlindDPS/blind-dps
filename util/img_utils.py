@@ -308,7 +308,7 @@ def perform_tilt(x, tilt, image_size: int, device):
     # if batch dimension exists, squeeze
     if len(tilt.shape) == 4:
         tilt = tilt.squeeze()
-    tilt_act = tilt.clone()
+    tilt_act = tilt.permute(1, 2, 0)
     grid_x, grid_y = torch.tensor(np.meshgrid(range(1, image_size + 1), range(1, image_size + 1))).to(device)
     tilt_act[:, :, 0] += grid_x
     tilt_act[:, :, 1] += grid_y
