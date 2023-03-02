@@ -130,3 +130,17 @@ noise:
     name:   gaussian
     sigma:  0.02
 ```
+
+## Citation
+If you find our work interesting, please consider citing
+
+```
+@inproceedings{
+@article{chung2023parallel,
+  title={Parallel Diffusion Models of Operator and Image for Blind Inverse Problems},
+  author={Chung, Hyungjin and Kim, Jeongsol and Kim, Sehui and Ye, Jong Chul},
+  journal={IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2023}
+}
+```
+
