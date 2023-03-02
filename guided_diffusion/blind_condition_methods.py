@@ -72,7 +72,8 @@ class BlindConditioningMethod(ConditioningMethod):
 class PosteriorSampling(BlindConditioningMethod):
     def __init__(self, operator, noiser, **kwargs):
         super().__init__(operator, noiser)
-        self.scale = kwargs.get('scale', 1.0)
+        assert kwargs.get('scale') is not None
+        self.scale = kwargs.get('scale')
 
     def conditioning(self, x_prev, x_t, x_0_hat, measurement, **kwargs):
         norm_grad, norm = self.grad_and_value(x_prev, x_0_hat, measurement, **kwargs)
