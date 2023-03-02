@@ -135,7 +135,6 @@ noise:
 If you find our work interesting, please consider citing
 
 ```
-@inproceedings{
 @article{chung2023parallel,
   title={Parallel Diffusion Models of Operator and Image for Blind Inverse Problems},
   author={Chung, Hyungjin and Kim, Jeongsol and Kim, Sehui and Ye, Jong Chul},
