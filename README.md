@@ -10,7 +10,7 @@ In this work, we show that we can indeed solve a family of blind inverse problem
 
 <br />
 
-:bulb: This repository is implemented on official repository of [DPS (diffusion-posterior-sampling)](https://github.com/DPS2022/diffusion-posterior-sampling).
+:bulb: This repository is implemented based on official repository of [DPS (diffusion-posterior-sampling)](https://github.com/DPS2022/diffusion-posterior-sampling).
 
 <br />
 
