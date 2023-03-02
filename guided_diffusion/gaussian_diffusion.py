@@ -450,11 +450,17 @@ class BlindDPS(DDPM):
             noisy_measurement = self.q_sample(measurement, t=time)
             x_t = dict((k, v['sample']) for k, v in output.items())
             x_0_hat = dict((k, v['pred_xstart']) for k, v in output.items())
+            
+            # Here, we implement gradually increasing scale that shows stable performance,
+            # while we reported the result with a constant scale in the paper.
+            scale = torch.from_numpy(self.sqrt_alphas_cumprod).to(time.device)[time].float()
+            scale = {'img': scale, 'kernel':scale}
             updated, norm = measurement_cond_fn(x_t=x_t,
                                                 measurement=measurement,
                                                 noisy_measurement=noisy_measurement,
                                                 x_prev=x_prev,
-                                                x_0_hat=x_0_hat)
+                                                x_0_hat=x_0_hat,
+                                                scale=scale)
             
             updated = dict((k, v.detach_()) for k, v in updated.items())
             x_prev = updated
