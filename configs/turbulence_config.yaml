@@ -1,7 +1,6 @@
 kernel: gaussian
 kernel_size: 64
 intensity: 4.0
-tilt_dir: /media/harry/tomo/turbulence/tilt_256x256
 
 conditioning:
   method: ps
