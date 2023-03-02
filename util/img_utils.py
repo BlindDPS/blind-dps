@@ -304,7 +304,7 @@ class Blurkernel(nn.Module):
 def normalize_axis(x,L):
     return (x-1-(L-1)/2)*2/(L-1)
 
-def perform_tilt(x, tilt, image_size=256, device='cuda:0'):
+def perform_tilt(x, tilt, image_size: int, device):
     # if batch dimension exists, squeeze
     if len(tilt.shape) == 4:
         tilt = tilt.squeeze()
