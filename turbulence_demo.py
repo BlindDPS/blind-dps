@@ -133,7 +133,7 @@ def main():
                    'kernel': torch.randn(kernel.shape, device=device).requires_grad_(),
                    'tilt': torch.randn(tilt.shape, device=device).requires_grad_()}
         
-        # !prior check: keys of model should be the same as the keys of x_start to use diffusion prior.
+        # !prior check: keys of model (line 74) must be the same as those of x_start to use diffusion prior.
         for k in x_start:
             if k in model.keys():
                 logger.info(f"{k} will use diffusion prior")
