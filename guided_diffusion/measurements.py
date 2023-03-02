@@ -176,7 +176,7 @@ class TurbulenceOperator(LinearOperator):
         self.device = device
     
     def forward(self, data, kernel, tilt, **kwargs):
-        tilt_data = perform_tilt(data, tilt)
+        tilt_data = perform_tilt(data, tilt, image_size=data.shape[-1], device=data.device)
         blur_tilt_data = self.apply_kernel(tilt_data, kernel)
         return blur_tilt_data
 

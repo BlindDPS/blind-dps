@@ -120,6 +120,7 @@ def main():
 
         # tilt
         img_size = img_model_config["image_size"]
+        # tile_map requires loop for generation that could be slow.
         tilt = generate_tilt_map(img_h=img_size, img_w=img_size, kernel_size=7, device=device)
         tilt = torch.clip(tilt, -2.5, 2.5)
         

@@ -304,11 +304,11 @@ class Blurkernel(nn.Module):
 def normalize_axis(x,L):
     return (x-1-(L-1)/2)*2/(L-1)
 
-def perform_tilt(x, tilt, image_size=256, device='cuda:0'):
+def perform_tilt(x, tilt, image_size: int, device):
     # if batch dimension exists, squeeze
     if len(tilt.shape) == 4:
         tilt = tilt.squeeze()
-    tilt_act = tilt.clone()
+    tilt_act = tilt.permute(1, 2, 0)
     grid_x, grid_y = torch.tensor(np.meshgrid(range(1, image_size + 1), range(1, image_size + 1))).to(device)
     tilt_act[:, :, 0] += grid_x
     tilt_act[:, :, 1] += grid_y
@@ -319,7 +319,7 @@ def perform_tilt(x, tilt, image_size=256, device='cuda:0'):
     x_deformed = F.grid_sample(x, tilt_act, align_corners=True)
     return x_deformed
 
-def generate_tile_map(img_h, img_w, kernel_size, device):
+def generate_tilt_map(img_h: int, img_w: int, kernel_size: int, device):
     M = 500
     N = 32
     
@@ -329,7 +329,7 @@ def generate_tile_map(img_h, img_w, kernel_size, device):
     conv = Blurkernel(blur_type='gaussian',
                       kernel_size=kernel_size,
                       std=1.0,
-                      device=device)
+                      device=device).to(device)
     kernel = conv.get_kernel().type(torch.float32)
     kernel = kernel.to(device).view(1, 1, kernel_size, kernel_size)
 
@@ -346,8 +346,7 @@ def generate_tile_map(img_h, img_w, kernel_size, device):
         u[x - N:x + N, y - N:y + N] += N_u * S
         v[x - N:x + N, y - N:y + N] += N_v * S
     
-    tilt_map = torch.stack((u, v), dim=2)
-    tilt_map = clear_color(tilt_map, normalize=False)
+    tilt_map = torch.stack((u, v), dim=0).unsqueeze(0)
     return tilt_map
      
 class exact_posterior():

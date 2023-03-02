@@ -41,8 +41,8 @@ From the [link](https://drive.google.com/drive/folders/1K_CG24xePSGeSdTGmcPfOAli
 ```
 mkdir models
 mv {DOWNLOAD_DIR}/ffqh_10m.pt ./models/
-mv {DOWNLOAD_DIR}/kernel_new_3m.pt ./models/
-mv {DOWNLOAD_DIR}/tilt256x256_1.4m.pt ./models/
+mv {DOWNLOAD_DIR}/kernel_checkpoint.pt ./models/
+mv {DOWNLOAD_DIR}/tilt_checkpoint.pt ./models/
 ```
 
 
