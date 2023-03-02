@@ -319,7 +319,7 @@ def perform_tilt(x, tilt, image_size: int, device):
     x_deformed = F.grid_sample(x, tilt_act, align_corners=True)
     return x_deformed
 
-def generate_tile_map(img_h: int, img_w: int, kernel_size: int, device):
+def generate_tilt_map(img_h: int, img_w: int, kernel_size: int, device):
     M = 500
     N = 32
     
