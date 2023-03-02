@@ -77,8 +77,12 @@ class PosteriorSampling(BlindConditioningMethod):
     def conditioning(self, x_prev, x_t, x_0_hat, measurement, **kwargs):
         norm_grad, norm = self.grad_and_value(x_prev, x_0_hat, measurement, **kwargs)
 
+        scale = kwargs.get('scale')
+        if scale is None:
+            scale = self.scale
+         
         keys = sorted(x_prev.keys())
         for k in keys:
-            x_t.update({k: x_t[k] - self.scale*norm_grad[k]})            
+            x_t.update({k: x_t[k] - scale*norm_grad[k]})            
         
         return x_t, norm
