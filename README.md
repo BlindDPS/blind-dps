@@ -1,4 +1,4 @@
-# Parallel Diffusion Model of Operator and Image for Blind Inverse Problems
+# Parallel Diffusion Model of Operator and Image for Blind Inverse Problems (CVPR2023)
 
 
 ![cover-img](./figures/cover.jpg)
