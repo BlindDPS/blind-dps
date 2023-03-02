@@ -19,4 +19,4 @@ use_new_attention_order: False
 grayscale: False
 twochan: True
 
-model_path: models/tilt256x256_1.4m.pt
+model_path: models/tilt_checkpoint.pt

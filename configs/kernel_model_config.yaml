@@ -18,4 +18,4 @@ use_fp16: False
 use_new_attention_order: False
 grayscale: True
 
-model_path: models/kernel_new_3m.pt
+model_path: models/kernel_checkpoint.pt
