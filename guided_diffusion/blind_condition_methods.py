@@ -84,6 +84,6 @@ class PosteriorSampling(BlindConditioningMethod):
          
         keys = sorted(x_prev.keys())
         for k in keys:
-            x_t.update({k: x_t[k] - scale*norm_grad[k]})            
+            x_t.update({k: x_t[k] - scale[k]*norm_grad[k]})            
         
         return x_t, norm
